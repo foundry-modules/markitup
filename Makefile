@@ -33,6 +33,8 @@ sets:
 	${UGLIFYCSS} markitup/sets/default/style.css > ${PRODUCTION_SETS}/html/style.css
 	cp -R markitup/sets/default/images ${DEVELOPMENT_SETS}/html/images
 	cp -R markitup/sets/default/images ${PRODUCTION_SETS}/html/images
+	${MODULARIZE} -jq -n "markitup/sets/html" markitup/sets/default/set.js > ${DEVELOPMENT_SETS}/html.js
+	${UGLIFYJS} ${DEVELOPMENT_SETS}/html.js > ${PRODUCTION_SETS}/html.js
 
 skins:
 	mkdir -p ${DEVELOPMENT_SKINS}
