@@ -49,11 +49,6 @@ skins:
 	cp -R markitup/skins/markitup/images ${DEVELOPMENT_SKINS}/default/images
 	cp -R markitup/skins/markitup/images ${PRODUCTION_SKINS}/default/images
 
-	# also to styles
-	mkdir -p ${STYLES_DIR}/markitup
-	cat markitup/skins/markitup/style.css | sed 's/url(default\//url(@{foundry}\/styles\/markitup\//g' > ${STYLES_DIR}/markitup/default.less
-	cp -R markitup/skins/markitup/images ${STYLES_DIR}/markitup/images
-
 	# markitup
 	# "markitup/skins/simple"
 	mkdir -p ${DEVELOPMENT_SKINS}/simple
@@ -62,6 +57,11 @@ skins:
 	${UGLIFYCSS} markitup/skins/simple/style.css > ${PRODUCTION_SKINS}/simple.css
 	cp -R markitup/skins/simple/images ${DEVELOPMENT_SKINS}/simple/images
 	cp -R markitup/skins/simple/images ${PRODUCTION_SKINS}/simple/images
+
+	# also to styles
+	mkdir -p ${STYLES_DIR}/markitup
+	cat markitup/skins/simple/style.css | sed 's/url(simple\//url(@{foundry}\/styles\/markitup\//g' > ${STYLES_DIR}/markitup/default.less
+	cp -R markitup/skins/simple/images ${STYLES_DIR}/markitup/images
 
 clean:
 	rm -rf ${DEVELOPMENT}
