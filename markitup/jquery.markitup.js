@@ -55,7 +55,8 @@
 					onTab:					{},
 					markupSet:			[	{ /* set */ } ]
 				};
-		$.extend(options, settings, extraSettings);
+
+		$.extend(options, settings, $.markItUp.sets[(extraSettings || settings || {}).set], extraSettings);
 
 		// compute markItUp! path
 		if (!options.root) {
