@@ -623,7 +623,7 @@
 	var sets;
 
 	if (typeof $.markItUp === "object") {
-		sets = $.markItUp;
+		sets = $.markItUp.sets;
 	}
 
 	$.markItUp = function(settings) {
@@ -639,8 +639,10 @@
 		}
 	};
 
+	$.markItUp.sets = {};
+
 	if (sets) {
-		$.extend($.markItUp, sets);
+		$.extend($.markItUp.sets, sets);
 	}
 
 })(jQuery);

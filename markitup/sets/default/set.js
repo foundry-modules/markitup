@@ -9,9 +9,9 @@
 // ----------------------------------------------------------------------------
 // Basic set. Feel free to add more tags
 // ----------------------------------------------------------------------------
-if ($.markItUp===undefined) { $.markItUp = {} };
+if ($.markItUp===undefined) { $.markItUp = { sets: {} } };
 
-$.markItUp.html = {
+$.markItUp.sets.html = {
 	onShiftEnter:  	{keepDefault:false, replaceWith:'<br />\n'},
 	onCtrlEnter:  	{keepDefault:false, openWith:'\n<p>', closeWith:'</p>'},
 	onTab:    		{keepDefault:false, replaceWith:'    '},
