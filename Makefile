@@ -60,7 +60,7 @@ skins:
 
 	# also to styles
 	mkdir -p ${STYLES_DIR}/markitup
-	cat markitup/skins/simple/style.css | sed 's/url(simple\//url(@{foundry_uri}\/styles\/markitup\//g' > ${STYLES_DIR}/markitup/default.less
+	cat markitup/skins/simple/style.css | sed 's/url(simple\//url(@{foundry_uri}\/markitup\//g' > ${STYLES_DIR}/markitup/default.less
 	cp -R markitup/skins/simple/images ${STYLES_DIR}/markitup/images
 
 clean:
