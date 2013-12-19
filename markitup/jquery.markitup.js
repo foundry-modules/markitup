@@ -609,7 +609,7 @@
 
 			function remove() {
 				$$.unbind(".markItUp").removeClass('markItUpEditor');
-				$$.parent('div').parent('div.markItUp').parent('div').replaceWith($$);
+				$$.parents('div.markItUp').parent('div').replaceWith($$);
 				$$.data('markItUp', null);
 			}
 
