@@ -15,6 +15,7 @@ submodules:
 	make set-html
 	make skin-default
 	make skin-simple
+	make foundry-styles
 
 prep-set-%:
 	$(eval MODULE                   = markitup/sets/$*)
@@ -49,7 +50,7 @@ skin-default: prep-skin-default .skin-default copy-style minify-style lessify-st
 .skin-default:
 	# Because we want to rename the source folder from default to markitup, but roll out as default.
 	$(eval SOURCE_STYLE_FOLDER = markitup/skins/markitup)
-	$(eval SOURCE_STYLE_FILE   = markitup/skins/markitup/style.css)	
+	$(eval SOURCE_STYLE_FILE   = markitup/skins/markitup/style.css)
 	$(eval SOURCE_ASSET_FILES  = markitup/skins/markitup/images/*)
 	$(eval TARGET_STYLE_LESS_CONVERTER = ${SKIN_DEFAULT_LESS_CONVERTER})
 
@@ -57,3 +58,6 @@ skin-simple: prep-skin-simple .skin-simple copy-style minify-style lessify-style
 
 .skin-simple:
 	$(eval TARGET_STYLE_LESS_CONVERTER = ${SKIN_SIMPLE_LESS_CONVERTER})
+
+foundry-styles:
+	cp -R styles/* ${TARGET_STYLE_FOLDER}
